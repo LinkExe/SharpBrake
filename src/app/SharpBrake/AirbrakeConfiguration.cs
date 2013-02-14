@@ -21,7 +21,7 @@ namespace SharpBrake
                         ?? "https://api.airbrake.io/notifier_api/v2/notices";
 
             ProjectRoot = HttpContext.Current != null
-                              ? HttpContext.Current.Request.ApplicationPath
+                              ? HttpRuntime.AppDomainAppVirtualPath
                               : Environment.CurrentDirectory;
 
             string[] values = ConfigurationManager.AppSettings.GetValues("Airbrake.AppVersion");
